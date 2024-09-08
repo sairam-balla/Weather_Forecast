@@ -23,7 +23,9 @@ const Weather = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       setIsLoading(true);
-      const apiKey = "b41339cc2c5ad23f125d3c0aaac1ba23";
+      // eslint-disable-next-line no-undef
+      const apiKey = import.meta.env.VITE_REACT_APP_OPENWEATHER_API_KEY;
+      console.log(import.meta.env.VITE_REACT_APP_OPENWEATHER_API_KEY);
       try {
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
